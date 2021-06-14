@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
@@ -7,6 +8,10 @@ from SM_app.EmailBackEnd import EmailBackEnd
 
 def demo(request):
     return render(request, 'demo.html')
+
+
+def test(request):
+    return render(request, 'hod_template/base_template.html')
 
 
 def show_login_page(request):
@@ -20,9 +25,12 @@ def doLogin(request):
         user = EmailBackEnd.authenticate(request, username=request.POST.get('email'), password=request.POST.get('password'))
         if user is not None:
             login(request, user)
-            return HttpResponse('Email: "' + request.POST.get('email') + '" .-^-. Password: "' + request.POST.get('password')+'"')
+            return HttpResponseRedirect('/admin_home')
+
+            # return HttpResponse('Email: "' + request.POST.get('email') + '" .-^-. Password: "' + request.POST.get('password') + '"')
         else:
-            return HttpResponse('Invalid Login')
+            messages.error(request, 'Invalid Login Details')
+            return HttpResponseRedirect('/')
 
 
 def get_user_details(request):
