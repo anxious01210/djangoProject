@@ -141,5 +141,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Registering the CustomUser Model of the app
 AUTH_USER_MODEL = 'SM_app.CustomUser'
 
-AUTHENTICATION_BACKENDS=['SM_app.EmailBackEnd.EmailBackEnd']
-
+AUTHENTICATION_BACKENDS = ['SM_app.EmailBackEnd.EmailBackEnd']

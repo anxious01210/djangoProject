@@ -1,0 +1,30 @@
+{% extends 'hod_template/base_template.html' %}
+{% block page_title %} Add Staff {% endblock page_title %}
+{% block main_content %}
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Quick Example</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form role="form" action="/add_staff/" method="post">
+                  <p>Test</p>
+                  {% csrf_token %}
+                    {{ user_form.as_p }}
+                    {{ profile_form.as_p }}
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary btn-block">Add Staff</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+{% endblock main_content %}
