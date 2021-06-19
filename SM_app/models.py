@@ -54,8 +54,8 @@ class Course(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return str(self.course_name)
+    # def __str__(self):
+    #     return str(self.course_name)
 
 
 class Subject(models.Model):
@@ -66,8 +66,8 @@ class Subject(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return str(self.subject_name)
+    # def __str__(self):
+    #     return str(self.subject_name)
 
 
 class Student(models.Model):
@@ -82,8 +82,8 @@ class Student(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return str(self.admin.first_name)
+    # def __str__(self):
+    #     return str(self.admin.first_name)
 
 
 class Attendance(models.Model):
@@ -93,8 +93,8 @@ class Attendance(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return str(self.attendance_date)
+    # def __str__(self):
+    #     return str(self.attendance_date)
 
 
 class AttendanceReport(models.Model):
@@ -105,8 +105,8 @@ class AttendanceReport(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return str(self.student_id)
+    # def __str__(self):
+    #     return str(self.student_id)
 
 
 class LeaveReportStudent(models.Model):
@@ -118,8 +118,8 @@ class LeaveReportStudent(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return str(self.student_id.admin.first_name)
+    # def __str__(self):
+    #     return str(self.student_id.admin.first_name)
 
 
 class LeaveReportTeacher(models.Model):
@@ -131,8 +131,8 @@ class LeaveReportTeacher(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return str(self.teacher_id.admin.first_name)
+    # def __str__(self):
+    #     return str(self.teacher_id.admin.first_name)
 
 
 class FeedbackStudent(models.Model):

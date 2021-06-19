@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views, HoDViews
 
-app_name = 'sm_ap'
+app_name = 'sm_app'
 
 urlpatterns = [
     path('demo/', views.demo, name='demo'),
@@ -11,6 +11,7 @@ urlpatterns = [
     path('doLogin/', views.doLogin, name='doLogin'),
     path('test/', views.test, name='test'),
     path('admin_home/', HoDViews.Admin_home, name='admin_home'),
-    path('add_staff/', HoDViews.add_staff, name='add_staff'),
-    # path('add_staff_save/', HoDViews.add_staff_save, name='add_staff_save'),
+    path('add_teacher/', HoDViews.add_teacher, name='add_teacher'),
+    path('add_teacher_save/', HoDViews.add_teacher_save, name='add_teacher_save'),
+
 ]
