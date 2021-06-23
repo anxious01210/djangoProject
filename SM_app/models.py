@@ -6,6 +6,7 @@ from django.dispatch import receiver
 
 # Create your models here.
 
+# Overriding the Default Django Auth User and adding One More Field (user_type)
 class CustomUser(AbstractUser):
     """Django data model CustomUser"""
     user_type_data = ((1, 'HOD'), (2, 'Teacher'), (3, 'Student'), (4, 'Parent'), (5, 'Staff'), (6, 'SemiAdmin'),)
@@ -59,7 +60,7 @@ class Course(models.Model):
 
 
 class Subject(models.Model):
-    """Django data model Course"""
+    """Django data model Subject"""
     course_id = models.ForeignKey(Course, on_delete=models.CASCADE)
     teacher_id = models.ForeignKey(Teacher, on_delete=models.CASCADE)
     subject_name = models.CharField(max_length=100)
@@ -71,7 +72,7 @@ class Subject(models.Model):
 
 
 class Student(models.Model):
-    """Django data model Admin"""
+    """Django data model Student"""
     admin = models.OneToOneField(CustomUser, on_delete=models.CASCADE, blank=True, null=True)
     gender = models.CharField(max_length=100)
     profile_pic = models.ImageField(upload_to="SM_app/students")
@@ -136,7 +137,7 @@ class LeaveReportTeacher(models.Model):
 
 
 class FeedbackStudent(models.Model):
-    """Django data model LeaveReportStudent"""
+    """Django data model FeedbackStudent"""
     student_id = models.ForeignKey(Student, on_delete=models.CASCADE)
     feedback = models.TextField(blank=True)
     feedback_reply = models.TextField(blank=True)
@@ -148,7 +149,7 @@ class FeedbackStudent(models.Model):
 
 
 class FeedbackTeacher(models.Model):
-    """Django data model LeaveReportStudent"""
+    """Django data model FeedbackTeacher"""
     teacher_id = models.ForeignKey(Teacher, on_delete=models.CASCADE)
     feedback = models.TextField(blank=True)
     feedback_reply = models.TextField(blank=True)
@@ -160,7 +161,7 @@ class FeedbackTeacher(models.Model):
 
 
 class NotificationStudent(models.Model):
-    """Django data model LeaveReportStudent"""
+    """Django data model NotificationStudent"""
     student_id = models.ForeignKey(Student, on_delete=models.CASCADE)
     message = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -171,7 +172,7 @@ class NotificationStudent(models.Model):
 
 
 class NotificationTeacher(models.Model):
-    """Django data model LeaveReportStudent"""
+    """Django data model NotificationTeacher"""
     teacher_id = models.ForeignKey(Teacher, on_delete=models.CASCADE)
     message = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -190,7 +191,8 @@ def create_user_profile(sender, instance, created, **kwargs):
         if instance.user_type == 2:
             Teacher.objects.create(admin=instance)
         if instance.user_type == 3:
-            Student.objects.create(admin=instance)
+            Student.objects.create(admin=instance, course_id=Course.objects.get(id=1))
+            # Student.objects.create(admin=instance, course_id=Course.objects.get(id=1))
         if instance.user_type == 4:
             Parent.objects.create(admin=instance)
         if instance.user_type == 5:
