@@ -25,7 +25,18 @@ def doLogin(request):
         user = EmailBackEnd.authenticate(request, username=request.POST.get('email'), password=request.POST.get('password'))
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect('/admin_home')
+            if user.user_type == '1':
+                return HttpResponseRedirect('/admin_home')
+            elif user.user_type == '2':
+                return HttpResponse('Teacher Login')
+            elif user.user_type == '3':
+                return HttpResponse('Student Login')
+            elif user.user_type == '4':
+                return HttpResponse('Parent Login')
+            elif user.user_type == '5':
+                return HttpResponse('Staff Login')
+            elif user.user_type == '6':
+                return HttpResponse('SemiAdmin Login')
 
             # return HttpResponse('Email: "' + request.POST.get('email') + '" .-^-. Password: "' + request.POST.get('password') + '"')
         else:

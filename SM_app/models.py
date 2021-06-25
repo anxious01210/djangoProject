@@ -62,7 +62,7 @@ class Course(models.Model):
 class Subject(models.Model):
     """Django data model Subject"""
     course_id = models.ForeignKey(Course, on_delete=models.CASCADE)
-    teacher_id = models.ForeignKey(Teacher, on_delete=models.CASCADE)
+    teacher_id = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     subject_name = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
