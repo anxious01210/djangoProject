@@ -12,14 +12,14 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form" action="/add_staff/" method="post">
+              <form role="form" action="{% url 'sm_app:add_teacher' %}" method="post">
                   <p>Test</p>
                   {% csrf_token %}
                     {{ user_form.as_p }}
                     {{ profile_form.as_p }}
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary btn-block">Add Staff</button>
+                  <button type="submit" class="btn btn-primary btn-block">Add Teacher</button>
                 </div>
               </form>
             </div>
