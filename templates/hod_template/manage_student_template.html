@@ -44,20 +44,20 @@
                   <tbody>
                   {% for student in students %}
                     <tr>
-                      <td>{{ student.admin.id }}</td>
-                      <td>{{ student.admin.first_name }}</td>
-                      <td>{{ student.admin.last_name }}</td>
-                      <td>{{ student.admin.username }}</td>
-                      <td>{{ student.admin.email }}</td>
-                      <td>{{ student.address }}</td>
-                      <td>{{ student.gender }}</td>
-                      <td>{{ student.profile_pic }}</td>
-                      <td>{{ student.session_start_year }}</td>
-                      <td>{{ student.session_end_year }}</td>
-                      <td>{{ student.course_id.course_name }}</td>
-                      <td>{{ student.admin.last_login }}</td>
-                      <td>{{ student.admin.date_joined }}</td>
-                      <td><a href="/edit_student/{{ student.admin.id }}" class="btn btn-success">Edit</a></td>
+                      <td class="align-middle">{{ student.admin.id }}</td>
+                      <td class="align-middle">{{ student.admin.first_name }}</td>
+                      <td class="align-middle">{{ student.admin.last_name }}</td>
+                      <td class="align-middle">{{ student.admin.username }}</td>
+                      <td class="align-middle">{{ student.admin.email }}</td>
+                      <td class="align-middle">{{ student.address }}</td>
+                      <td class="align-middle">{{ student.gender }}</td>
+                      <td class="align-middle"><img src="{{ student.profile_pic }}" alt=" There isn't. " width="100" height="100"></td>
+                      <td class="align-middle">{{ student.session_start_year }}</td>
+                      <td class="align-middle">{{ student.session_end_year }}</td>
+                      <td class="align-middle">{{ student.course_id.course_name }}</td>
+                      <td class="align-middle">{{ student.admin.last_login }}</td>
+                      <td class="align-middle">{{ student.admin.date_joined }}</td>
+                      <td class="align-middle"><a href="{% url 'sm_ap:edit_student' student_id=student.admin.id %}" class="btn btn-success">Edit</a></td>
                     </tr>
                   {% endfor %}
                   </tbody>

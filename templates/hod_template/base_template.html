@@ -46,7 +46,7 @@
             <!-- Messages Dropdown Menu -->
 
             <li class="nav-item">
-                <a class="nav-link" href="/logout_user" role="button">
+                <a class="nav-link" href="{% url 'sm_app:logout_user' %}" role="button">
                     Logout
                 </a>
             </li>
@@ -55,7 +55,7 @@
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    {% include 'hod_template/sidebar_template.html' with user=user %}
+    {% include 'hod_template/sidebar_template.html' with user=user id=id %}
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">

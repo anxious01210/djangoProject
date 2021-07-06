@@ -28,6 +28,13 @@ urlpatterns = [
     path('edit_student/<str:student_id>/', HoDViews.edit_student, name='edit_student'), # It works with str or slug which both are string, not working with int.
     path('edit_student_save/', HoDViews.edit_student_save, name='edit_student_save'),
 
+    path('edit_subject/<str:subject_id>/', HoDViews.edit_subject, name='edit_subject'),
+    path('edit_subject_save/', HoDViews.edit_subject_save, name='edit_subject_save'),
+
+    path('edit_course/<str:course_id>/', HoDViews.edit_course, name='edit_course'),
+    path('edit_course_save/', HoDViews.edit_course_save, name='edit_course_save'),
+
+
 
 ]
 
